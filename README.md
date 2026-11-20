@@ -33,10 +33,13 @@ module up_counter (
     
 );
     always @(posedge clk or posedge rst) begin
+    
         if (rst)
             count <= 4'b0000;
+            
         else if (en)
             count <= count + 1'b1; // increment, wraps 1111 -> 0000
+            
         else
             count <= count;        // hold
     end
